@@ -1,6 +1,7 @@
 Extra info for the following work:  
 [_Science advances_ __2022__, 8, eabq2900](https://doi.org/10.1126/sciadv.abq2900)  
 Origin of the herringbone reconstruction of Au(111) surface at the atomic scale  
+Authors: Pai Li, Feng Ding  
 
 The file 311.4499.dump is the original symmetric surface model.  
 All structural files can be visualized via OVITO.  
