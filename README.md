@@ -11,7 +11,7 @@ The training set can be found in [https://figshare.com/articles/dataset/Au_111_h
 1. DFT opt 22*sqrt(3) structure (CONTCAR)  
 2. Get x/y, _i.e._ the size of model box   
 > get_xy.py  
-```
+```python
 import numpy as np
 import os
 N=9
@@ -39,7 +39,7 @@ for y in yl:
 ```
 3. Get twin structure and fit into the model box  
 > get_str.sh  
-```
+```bash
 for y in `cat y`
 do
     for x in `cat x`
@@ -102,7 +102,7 @@ do
 done
 ```
 > get_twins.py
-```
+```python
 from ase.io import read,write
 from ase import Atom
 a=read("POSCAR")
@@ -125,7 +125,7 @@ for i in a:
 write("surf.vasp",a)
 ```
 > fit_box.py
-```
+```python
 from ase.io import read, write
 import sys
 a=read(sys.argv[1],format='vasp')
@@ -136,7 +136,7 @@ write(sys.argv[2],a,format='vasp',direct=True)
 4. Box periodic vector problem
 The box2 we defined is in the form of upper triangular matrix, which becomes a lower triangular matrix after converting the structure to cif and then back to POSCAR format for surf.pos1 (surface part, _i.e._ the top layer). We therefore need to do the same transitions for subs.pos1 (substrat part, _i.e._ layers except the top layer).  
 > up2down.py
-```
+```python
 from ase.io import read, write
 import sys
 for  i in names:
@@ -147,7 +147,7 @@ for  i in names:
 ```
 5. Combine surf.pos1 and subs.pos1   
 The reason why we split the structure into surf and subs parts is that Materials Studio is very slow to handle very large systems and meanwhile only the surface part (the first layer) requres further adjustment in MS. Now we have these two parts and can merge them into one model.
-```
+```bash
 mkdir combine 
 cp MS_cif_out/*.surf combine/
 cp subs_pos/*.subs combine/
@@ -202,7 +202,7 @@ run             1
 ```
 Deal with lammps results:
 > conv1.sh
-```
+```bash
 mkdir xyz
 for i in 311.4499  346.0555  380.6610  415.2665  449.8721  484.4776  519.0832  553.6887  588.2943  622.8998
 do
@@ -222,7 +222,7 @@ do
 done
 ```
 > 1to2.py
-```
+```python
 from ase.io import read,write
 a=read("1.xyz",index=":")
 write("2.xyz",a[-1])
