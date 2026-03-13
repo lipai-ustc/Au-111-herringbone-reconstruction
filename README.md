@@ -3,7 +3,7 @@ Extra info for the following work:
 Origin of the herringbone reconstruction of Au(111) surface at the atomic scale  
 Authors: Pai Li, Feng Ding*  
 
-The file 311.4499.dump is the original symmetric surface model.  
+The file 311.4499.dump contains the original symmetric surface model.  
 All structural files can be visualized via OVITO.  
 The training set can be found in [https://figshare.com/articles/dataset/Au_111_herringbone_reconstruction/25909786]
 
